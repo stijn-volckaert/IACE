@@ -1,0 +1,8 @@
+*.sdf
+*.db
+*.pdb
+*.suo
+.vc/
+ipch/
+Debug/
+Release/
