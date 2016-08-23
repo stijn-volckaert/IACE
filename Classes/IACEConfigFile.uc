@@ -1,5 +1,5 @@
 // =============================================================================
-// AntiCheatEngine BETA 0.9 - (c) 2009-2011 AnthraX
+// AntiCheatEngine - (c) 2009-2016 AnthraX
 // =============================================================================
 // IACEConfigFile: Object that allows reading from and writing to a version
 // independent ACE configuration file.

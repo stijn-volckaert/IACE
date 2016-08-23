@@ -1,5 +1,5 @@
 // =============================================================================
-// AntiCheatEngine BETA 0.9 - (c) 2009-2011 AnthraX
+// AntiCheatEngine - (c) 2009-2016 AnthraX
 // =============================================================================
 class IACEConfigFileWriter extends StatLogFile;
 

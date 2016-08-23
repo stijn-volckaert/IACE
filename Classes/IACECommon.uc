@@ -1,5 +1,5 @@
 // =============================================================================
-// AntiCheatEngine BETA 0.9 - (c) 2009-2011 AnthraX
+// AntiCheatEngine - (c) 2009-2016 AnthraX
 // =============================================================================
 class IACECommon extends Actor;
 
@@ -351,6 +351,6 @@ function int HexToInt(string HexString)
 // =============================================================================
 defaultproperties
 {
-    ACEVersion="v09"
+    ACEVersion="v10"
     bHidden=true
 }

@@ -1,5 +1,5 @@
 // =============================================================================
-// AntiCheatEngine BETA 0.9 - (c) 2009-2011 AnthraX
+// AntiCheatEngine - (c) 2009-2016 AnthraX
 // =============================================================================
 // ACE End User License agreement. Spawned into entrylevel and displayed by
 // NPLoader. Needs to be accepted before ACE is installed.
@@ -24,8 +24,9 @@ var config bool bLicenseAccepted;
 // =============================================================================
 function PostBeginPlay()
 {
-    AddLine("AntiCheatEngine BETA 0.9 - End User License Agreement");
-    AddLine("=====================================================");
+    AddLine("================================================");
+    AddLine("AntiCheatEngine 1.0 - End User License Agreement");
+    AddLine("================================================");
     AddLine("");
     AddLine("By installing ACE, the player accepts that ACE:");
     AddLine("* may monitor the game's virtual address space to look for mods, libraries or programs that enable or facilitate cheating;");
@@ -112,6 +113,37 @@ function PostBeginPlay()
     AddLine("LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION");
     AddLine("OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION");
     AddLine("WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.");
+    AddLine("");
+    AddLine("--------------------------------------------");
+    AddLine("5) xxHash - Fast Hash algorithm");
+    AddLine("--------------------------------------------");
+    AddLine("");
+    AddLine("Copyright (C) 2012-2016, Yann Collet");
+    AddLine("");
+    AddLine("BSD 2-Clause License (http://www.opensource.org/licenses/bsd-license.php)");
+    AddLine("");
+    AddLine("Redistribution and use in source and binary forms, with or without");
+    AddLine("modification, are permitted provided that the following conditions are");
+    AddLine("met:");
+    AddLine("");
+    AddLine("* Redistributions of source code must retain the above copyright");
+    AddLine("notice, this list of conditions and the following disclaimer.");
+    AddLine("* Redistributions in binary form must reproduce the above");
+    AddLine("copyright notice, this list of conditions and the following disclaimer");
+    AddLine("in the documentation and/or other materials provided with the");
+    AddLine("distribution.");
+    AddLine("");
+    AddLine("THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS");
+    AddLine("\"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT");
+    AddLine("LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR");
+    AddLine("A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO event SHALL THE COPYRIGHT");
+    AddLine("OWNER OR CONTRIBUTORS BE LIABLE for ANY DIRECT, INDIRECT, INCIDENTAL,");
+    AddLine("SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT");
+    AddLine("LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,");
+    AddLine("DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY");
+    AddLine("THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT");
+    AddLine("(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY out OF THE USE");
+    AddLine("OF THIS SOFTWARE, EVEN if ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.");
 }
 
 // =============================================================================
