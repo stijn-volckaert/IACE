@@ -181,7 +181,7 @@ defaultproperties
     bAlwaysTick=true
     bHidden=true
     bAutoConfig=true
-    AutoConfigPackage="ACEv10_AutoConfig"
+    AutoConfigPackage="ACE@ACESHORTMAJORVERLOWER@_AutoConfig"
     bSShotWhenKick=true
     SShotQuality=85
     AdminPass=""

@@ -351,6 +351,6 @@ function int HexToInt(string HexString)
 // =============================================================================
 defaultproperties
 {
-    ACEVersion="v10"
+    ACEVersion="@ACESHORTMAJORVERLOWER@"
     bHidden=true
 }
