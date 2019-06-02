@@ -25,7 +25,7 @@ var config bool bLicenseAccepted;
 function PostBeginPlay()
 {
     AddLine("================================================");
-    AddLine("AntiCheatEngine 1.0 - End User License Agreement");
+    AddLine("AntiCheatEngine 1.1 - End User License Agreement");
     AddLine("================================================");
     AddLine("");
     AddLine("By installing ACE, the player accepts that ACE:");

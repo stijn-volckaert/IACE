@@ -1,5 +1,5 @@
 // =============================================================================
-// AntiCheatEngine - (c) 2009-2016 AnthraX
+// AntiCheatEngine - (c) 2009-2019 AnthraX
 // =============================================================================
 // IACEActor: base class of the main serveractor
 // =============================================================================
@@ -65,7 +65,7 @@ function PostBeginPlay()
     ACEPadLog("","-","+",40,true);
     ACEPadLog("ACE for Unreal Tournament"," ","|",40,true);
     ACEPadLog(ACEVersion," ","|",40,true);
-    ACEPadLog("(c) 2009-2016 - AnthraX"," ","|",40,true);
+    ACEPadLog("(c) 2009-2019 - AnthraX"," ","|",40,true);
     ACEPadLog("","-","+",40,true);
     MyPostBeginPlay();
 }
