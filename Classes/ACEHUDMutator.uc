@@ -254,6 +254,7 @@ function RegisterHUDMutator()
             NextHUDMutator   = HUD.HUDMutator;
             HUD.HUDMutator = self;
         }
+		bHUDMutator = true;
     }
 }
 
