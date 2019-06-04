@@ -49,6 +49,7 @@ var config string FileListProviderHost;   // Provider of the file list (eg: utgl
 var config string FileListProviderPath;   // Path to the most recent file list (eg: /ACE/)
 var config string FileListName;           // Filename of the filelist (eg: ACEFileList.txt)
 var config string FileListPath;           // Path to the filelist (eg: ../System/)
+var config string BadgeNotifyClass;       // Class of the Actor that spawns the ACE splash logo. Must be a subclass of IACE.ACEBadgeNotify
 var config bool   bStrictSystemLibraryChecks;
 
 // =============================================================================
@@ -210,4 +211,5 @@ defaultproperties
     PeriodicCheckTimeout=60.0
     SShotTimeout=40.0
     bStrictSystemLibraryChecks=false
+	BadgeNotifyClass="IACE@ACESHORTMAJORVERLOWER@.ACEBadgeNotify"
 }
