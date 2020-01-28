@@ -25,7 +25,7 @@ var config bool bLicenseAccepted;
 function PostBeginPlay()
 {
     AddLine("================================================");
-    AddLine("AntiCheatEngine 1.1 - End User License Agreement");
+    AddLine("AntiCheatEngine 1.2 - End User License Agreement");
     AddLine("================================================");
     AddLine("");
     AddLine("By installing ACE, the player accepts that ACE:");
@@ -144,6 +144,34 @@ function PostBeginPlay()
     AddLine("THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT");
     AddLine("(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY out OF THE USE");
     AddLine("OF THIS SOFTWARE, EVEN if ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.");
+	AddLine("");
+    AddLine("--------------------------------------------");
+    AddLine("6) Microsoft Detours");
+    AddLine("--------------------------------------------");
+    AddLine("");
+	AddLine("# Copyright (c) Microsoft Corporation");
+	AddLine("");
+	AddLine("All rights reserved.");
+	AddLine("");
+	AddLine("# MIT License");
+	AddLine("");
+	AddLine("Permission is hereby granted, free of charge, to any person obtaining a copy of");
+	AddLine("this software and associated documentation files (the \"Software\"), to deal in");
+	AddLine("the Software without restriction, including without limitation the rights to");
+	AddLine("use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies");
+	AddLine("of the Software, and to permit persons to whom the Software is furnished to do");
+	AddLine("so, subject to the following conditions:");
+	AddLine("");
+	AddLine("The above copyright notice and this permission notice shall be included in all");
+	AddLine("copies or substantial portions of the Software.");
+	AddLine("");
+	AddLine("THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR");
+	AddLine("IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,");
+	AddLine("FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE");
+	AddLine("AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER");
+	AddLine("LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,");
+	AddLine("OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE");
+	AddLine("SOFTWARE.");
 }
 
 // =============================================================================

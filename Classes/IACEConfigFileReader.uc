@@ -1,5 +1,5 @@
 // =============================================================================
-// AntiCheatEngine - (c) 2009-2019 AnthraX
+// AntiCheatEngine - (c) 2009-2020 AnthraX
 // =============================================================================
 // IACEConfigFileReader: this cannot be compiled without bytehacking UWeb.u
 //
