@@ -20,6 +20,7 @@ var enum EDrawState
 // =============================================================================
 var ChallengeHUD HUD;
 var PlayerPawn Player;
+var Font       ScaledFont;
 var int        PosX, PosY;                      // Calculated
 var int        ConfigPosX, ConfigPosY;          // Configured
 var int        OldClipX, OldClipY;
@@ -84,15 +85,38 @@ simulated function DrawSplash(canvas Canvas)
     local bool PreviousCenter;
     local color PreviousColor;
     local byte PreviousStyle;
-    local float W, H;
+    local float W, H, MaxW, MaxH;
     local float Tmp;
     local int I;
+	local class<FontInfo> FCClass;
+	local FontInfo FC;
+	local float ScaledU, ScaledV;
 
     DisplayText = StatusText;
 
     DrawTime  += (Level.TimeSeconds - OldLTS);
     OldLTS     = Level.TimeSeconds;
     //DrawTime += DeltaTime;
+
+	if (ScaledFont == none)
+	{
+		FCClass = Class<FontInfo>(DynamicLoadObject(class'ChallengeHUD'.default.FontInfoClass, class'Class'));
+		if (FCClass != none)
+		{
+			FC = Spawn(FCClass);
+			if (FC != none)
+			{
+				ScaledFont = FC.GetSmallFont(Canvas.ClipX);
+				FC.Destroy();
+			}
+		}
+
+		if (ScaledFont == none)
+			ScaledFont = Canvas.SmallFont;
+
+		FCClass = none;
+		FC = none;
+	}
 
     // Update text
     if (DrawTime - LastUpdate > 0.2)
@@ -145,15 +169,21 @@ simulated function DrawSplash(canvas Canvas)
         PreviousFont   = Canvas.Font;
         PreviousStyle  = Canvas.Style;
         Canvas.Reset();
+        Canvas.Font = ScaledFont;
+		Canvas.TextSize("Loading Complete!",MaxW,MaxH);
 
-        // if player has changed his screen resolution, re-set positions and size - also sets things in the first run
-        if(Canvas.ClipX != OldClipX || Canvas.ClipY != OldClipY)
-        {
-            PosX = ConfigPosX;
-            PosY = Canvas.ClipY/2 + ConfigPosY;
-            OldClipX = Canvas.ClipX;
-            OldClipY = Canvas.ClipY;
-        }
+		ScaledU = SplashLogo.USize * MaxH / 10.0;
+		ScaledV = SplashLogo.VSize * MaxH / 10.0;
+
+        // if player has changed the screen resolution, re-set positions and
+        // size - also sets things in the first run
+		if(Canvas.ClipX != OldClipX || Canvas.ClipY != OldClipY)
+		{
+			PosX = ConfigPosX;
+			PosY = Canvas.ClipY/2 + ConfigPosY;
+		    OldClipX = Canvas.ClipX;
+		    OldClipY = Canvas.ClipY;
+		}
         Canvas.SetPos(PosX, PosY);
 
         Switch (DrawState)
@@ -188,7 +218,7 @@ simulated function DrawSplash(canvas Canvas)
                 break;
         }
 
-        Canvas.DrawIcon(SplashLogo, 1.0);
+        Canvas.DrawIcon(SplashLogo, ScaledU / SplashLogo.USize);
 
         Canvas.Reset();
         Canvas.bCenter = False;
@@ -219,18 +249,18 @@ simulated function DrawSplash(canvas Canvas)
                     Disable('Tick');
                     Tmp = 0.0;
                 }
-                Canvas.DrawColor.R = 255 * Tmp;
-                Canvas.DrawColor.G = 255 * Tmp;
-                Canvas.DrawColor.B = 255 * Tmp;
+                Canvas.DrawColor.R = Max(255 * Tmp, 1);
+                Canvas.DrawColor.G = Max(255 * Tmp, 1);
+                Canvas.DrawColor.B = Max(255 * Tmp, 1);
                 break;
         }
 
-        Canvas.Font = Canvas.SmallFont;
+		Canvas.Font = ScaledFont;
         Canvas.TextSize(VersionText,W,H);
-        Canvas.SetPos(PosX + int(float(SplashLogo.USize)/2.0 - W/2.0), PosY + int(float(SplashLogo.VSize)) + 10);
+        Canvas.SetPos(PosX + int(ScaledU/2.0 - W/2.0), PosY + int(ScaledV));
         Canvas.DrawText(VersionText);
         Canvas.TextSize(StatusText,W,H);
-        Canvas.SetPos(PosX + int(float(SplashLogo.USize)/2.0 - W/2.0), PosY + int(float(SplashLogo.VSize)) + 20);
+        Canvas.SetPos(PosX + int(ScaledU/2.0 - W/2.0), PosY + int(ScaledV) + MaxH);
         Canvas.DrawText(DisplayText);
 
         Canvas.bCenter   = PreviousCenter;
