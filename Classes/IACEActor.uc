@@ -51,6 +51,7 @@ var config string FileListName;           // Filename of the filelist (eg: ACEFi
 var config string FileListPath;           // Path to the filelist (eg: ../System/)
 var config string BadgeNotifyClass;       // Class of the Actor that spawns the ACE splash logo. Must be a subclass of IACE.ACEBadgeNotify
 var config bool   bStrictSystemLibraryChecks;
+var config bool   bVerboseLogging;
 
 // =============================================================================
 // Variables

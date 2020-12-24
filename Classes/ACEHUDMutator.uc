@@ -45,7 +45,7 @@ simulated function PostRender(canvas Canvas)
         {
             LogoInitialized = true;
             SplashLogo = texture'acelogo';
-            DrawState    = EDrawState.DRAW_FADE_IN;
+            DrawState  = EDrawState.DRAW_FADE_IN;
             OldLTS     = Level.TimeSeconds;
         }
 
@@ -54,10 +54,6 @@ simulated function PostRender(canvas Canvas)
     else if (DrawState == EDrawState.DRAW_DONE)
     {
         UnregisterHUDMutator();
-        HUD          = none;
-        Player         = none;
-        SplashLogo   = none;
-        NextHUDMutator = none;
         Destroy();
     }
 
@@ -66,11 +62,28 @@ simulated function PostRender(canvas Canvas)
 }
 
 // =============================================================================
+// Destroyed
+// =============================================================================
+event Destroyed()
+{
+    HUD            = none;
+    Player         = none;
+    SplashLogo     = none;
+    NextHUDMutator = none;
+    ScaledFont     = none;
+}
+
+// =============================================================================
 // Tick
 // =============================================================================
 simulated function Tick(float DeltaTime)
 {
-    if (HUD != none && HUD.HUDMutator == none)
+    if (HUD == none && Player != none)
+	{
+        HUD = ChallengeHUD(Player.myHUD);		
+    }
+	
+    if (HUD != none && bHUDMutator)
     {
         RegisterHUDMutator();
     }
@@ -327,6 +340,14 @@ function SetStatus(int SN, optional string SS)
     {
         DrawTime = 0.0;
         StatusText = "Loading Complete!";
+
+		// Clean up here because if the HUD is hidden, we're not going to get
+		// any PostRender calls so we won't have a chance to clean up there
+        if (HUD != none && HUD.bHideHUD)
+		{
+            UnregisterHUDMutator();
+			Destroy();
+        }
     }
     else if (SN == 1)
     {
@@ -345,4 +366,6 @@ defaultproperties
 {
     VersionText="ACE @ACELONGVERLOWER@"
     StatusText="Loading"
+	bHidden=true
+	bAlwaysTick=true
 }
