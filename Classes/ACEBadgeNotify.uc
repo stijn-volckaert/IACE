@@ -11,6 +11,7 @@ var ChallengeHUD    HUD;     // HUD we're attached to
 var PlayerPawn      PP;      // PlayerPawn we're attached to
 var int StatusNum;           //
 var string StatusTxt;        // Optional extra text
+var string VersionText;      // Override for version under logo
 var float XPos;              // X Position of the top left corner
 var float YPos;              // Y Position of the top left corner
 
@@ -55,7 +56,8 @@ function AttachToHUD(ChallengeHUD NewHUD)
         ACEHUD.Player = PP;
         ACEHUD.PosX = XPos;
         ACEHUD.PosY = YPos;
-        ACEHUD.RegisterHUDMutator();
+		ACEHUD.VersionText = VersionText;
+//        ACEHUD.RegisterHUDMutator();
         ACEHUD.SetStatus(StatusNum, StatusTxt);
     }
 }

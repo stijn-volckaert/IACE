@@ -42,12 +42,6 @@ var IACECheck  NextCheck;           // Linked list
 function SetPlayerCrosshairScale(float CrosshairScale);
 
 // =============================================================================
-// ToggleCompatibilityMode ~ Changes the ACE timing settings to resemble the
-// original game. This is NOT recommended.
-// =============================================================================
-function ToggleCompatibilityMode();
-
-// =============================================================================
 // TogglePerformanceMode ~ Toggles the ACE performance mode. Only recommended
 // for high end pcs!
 // =============================================================================
@@ -72,6 +66,11 @@ function ViewSettings();
 //               4 = HIDE demo status display
 // =============================================================================
 function SetDemoStatus(int Status);
+
+// =============================================================================
+// DebugCommand ~ For internal use only. Disabled in release builds
+// =============================================================================
+function DebugCommand(string Data1, string Data2);
 
 // =============================================================================
 // ACELogExternal ~ Overridden

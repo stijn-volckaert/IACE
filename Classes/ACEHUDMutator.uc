@@ -83,7 +83,7 @@ simulated function Tick(float DeltaTime)
         HUD = ChallengeHUD(Player.myHUD);		
     }
 	
-    if (HUD != none && bHUDMutator)
+    if (HUD != none && !bHUDMutator)
     {
         RegisterHUDMutator();
     }
@@ -291,10 +291,12 @@ function RegisterHUDMutator()
     if (HUD != none)
     {
         if (HUD.HUDMutator == none)
+		{
             HUD.HUDMutator = self;
+		}
         else
         {
-            NextHUDMutator   = HUD.HUDMutator;
+            NextHUDMutator = HUD.HUDMutator;
             HUD.HUDMutator = self;
         }
 		bHUDMutator = true;
@@ -311,22 +313,18 @@ function UnregisterHUDMutator()
 
     if (HUD != none)
     {
-        if (HUD.HUDMutator == self)
-        {
-            HUD.HUDMutator = NextHUDMutator;
-        }
-        else if (HUD.HUDMutator != none)
-        {
-            for (Mut = HUD.HUDMutator.NextHUDMutator; Mut != none; Mut = Mut.NextHUDMutator)
+	   for (Mut = HUD.HUDMutator; Mut != none; Mut = Mut.NextHUDMutator)
+       {
+            if (Mut == self)
             {
-                if (Mut == self)
-                {
+				if (Prev != none)
                     Prev.NextHUDMutator = NextHUDMutator;
-                    break;
-                }
-                Prev = Mut;
+				else
+				    HUD.HUDMutator = NextHUDMutator;
+                break;
             }
-        }
+            Prev = Mut;
+        }       
     }
 }
 

@@ -42,7 +42,7 @@ var config string ForcedWANIP;            // Force the WAN ip. This WILL be over
 var config string CachedWANIP;            // Last known WAN ip
 
 var config int    ACEPort;                // Port to bind the PlayerManager on (if set to 0, the PlayerManager will listen on GamePort+2)
-var config bool   bAllowOtherPorts;       // Allow ACE to bind other ports if the above port is not available? If set to true, ACE will try to bind ports one by one (starting at the ACEPort)var config bool   bAutoUpdateFileList;    // Automagically download new definitions from the UTGL masterserver?
+var config bool   bAllowOtherPorts;       // Allow ACE to bind other ports if the above port is not available? If set to true, ACE will try to bind ports one by one (starting at the ACEPort)
 
 var config bool   bAutoUpdateFileList;    // Automagically download new definitions from the UTGL masterserver?
 var config string FileListProviderHost;   // Provider of the file list (eg: utgl.unrealadmin.org)
