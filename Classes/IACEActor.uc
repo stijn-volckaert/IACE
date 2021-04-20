@@ -35,6 +35,8 @@ var config bool   bShowLogo;              // Show the ACE logo and the loading s
 var config float  LogoXPos;               // X coordinate of the top left corner of the logo
 var config float  LogoYPos;               // Y coordinate of the top left corner of the logo
 var config bool   bCheckSpectators;       // Should spectators be checked as well? -> required for certain banning systems
+var config bool   bEnableAntiTweak;       // If true, ACE will scan for illegal tweaks. Not recommended for public servers!
+var config bool   bCreateEndShots;        // If true, ACE will automatically create screenshots on all clients when the game ends. These screenshots will be uploaded to and stored on the server. Only recommended in competitive games!
 var config bool   bAutoFindWANIp;         // Automatically find the WAN ip if the server is behind a NAT router
 var config bool   bCacheWANIP;            // Cache the WAN ip (recommended for servers with a static ip)
 var config string WANQueryServer[10];     // Servers to query to find out WAN ip
@@ -48,10 +50,13 @@ var config bool   bAutoUpdateFileList;    // Automagically download new definiti
 var config string FileListProviderHost;   // Provider of the file list (eg: utgl.unrealadmin.org)
 var config string FileListProviderPath;   // Path to the most recent file list (eg: /ACE/)
 var config string FileListName;           // Filename of the filelist (eg: ACEFileList.txt)
-var config string FileListPath;           // Path to the filelist (eg: ../System/)
-var config string BadgeNotifyClass;       // Class of the Actor that spawns the ACE splash logo. Must be a subclass of IACE.ACEBadgeNotify
-var config bool   bStrictSystemLibraryChecks;
-var config bool   bVerboseLogging;
+var config string FileListPath;           // Path to the filelist and tweaklist (eg: ../System/)
+var config string TweakListName;          // Filename of the tweaklist (eg: ACETweakList.txt)
+var config bool   bStrictSystemLibraryChecks; // If true, ACE will kick for integrity violations in system DLLs. Not recommended!
+var config bool   bVerboseLogging;        // If true, ACE will log integrity violations in system DLLs.
+var config string PackageHelperClass;     // Name of the PackageHelper class.
+var config string HUDMutatorClass;        // name of the splash logo class to use. Must be a subclass of IACE.ACEHUDMutator
+
 
 // =============================================================================
 // Variables
@@ -199,6 +204,7 @@ defaultproperties
     FileListPath="./"
     FileListProviderHost="utgl.unrealadmin.org"
     FileListProviderPath="/ACE/"
+	TweakListName="ACETweakList.txt"
     SShotPath="../Shots/"
     SShotPrefix="[ACE]"
     ACEPort=0
@@ -212,5 +218,9 @@ defaultproperties
     PeriodicCheckTimeout=60.0
     SShotTimeout=40.0
     bStrictSystemLibraryChecks=false
-	BadgeNotifyClass="IACE@ACESHORTMAJORVERLOWER@.ACEBadgeNotify"
+	PackageHelperClass="PackageHelper_v15.PHActor"
+	HUDMutatorClass="IACE@ACESHORTMAJORVERLOWER@.ACEHUDMutator"
+	bVerboseLogging=false
+	bEnableAntiTweak=false
+	bCreateEndShots=false
 }
