@@ -15,8 +15,8 @@ var config float  InitialCheckTimeout;    // How many seconds are allowed to run
 var config float  PeriodicCheckInterval;  // How many seconds in between checks?
 var config float  PeriodicCheckTimeout;   // How many seconds are allowed to run the periodic check?
 var config bool   bSShotWhenKick;         // Make a screenshot before kicking?
-var config string SShotPath;              // Path to the sshot folder (eg: ../Shots/)
-var config string SShotPrefix;            // Prefix for the sshots (eg: [ACE])
+var config string SShotPath;              // Path to the sshot folder (e.g.: ../Shots/)
+var config string SShotPrefix;            // Prefix for the sshots (e.g.: [ACE])
 var config int    SShotQuality;           // Quality of the screenshots
 var config float  SShotTimeOut;           // How many seconds do we allow for a screenshot?
 var config bool   bAutoConfig;            // Automatically configure ACE?
@@ -47,16 +47,19 @@ var config int    ACEPort;                // Port to bind the PlayerManager on (
 var config bool   bAllowOtherPorts;       // Allow ACE to bind other ports if the above port is not available? If set to true, ACE will try to bind ports one by one (starting at the ACEPort)
 
 var config bool   bAutoUpdateFileList;    // Automagically download new definitions from the UTGL masterserver?
-var config string FileListProviderHost;   // Provider of the file list (eg: utgl.unrealadmin.org)
-var config string FileListProviderPath;   // Path to the most recent file list (eg: /ACE/)
-var config string FileListName;           // Filename of the filelist (eg: ACEFileList.txt)
-var config string FileListPath;           // Path to the filelist and tweaklist (eg: ../System/)
-var config string TweakListName;          // Filename of the tweaklist (eg: ACETweakList.txt)
+var config string FileListProviderHost;   // Provider of the file list (e.g.: utgl.unrealadmin.org)
+var config string FileListProviderPath;   // Path to the most recent file list (e.g.: /ACE/)
+var config string FileListName;           // Filename of the filelist (e.g.: ACEFileList.txt)
+var config string FileListPath;           // Path to the filelist (e.g.: ../System/)
+var config bool   bAutoUpdateTweakList;   // Automagically download new definitions from the UTGL masterserver?
+var config string TweakListProviderHost;  // Provider of the tweaklist (e.g.: utgl.unrealadmin.org)
+var config string TweakListProviderPath;  // Path to the most recent tweaklist (e.g.: /ACE/)
+var config string TweakListName;          // Filename of the tweaklist (e.g.: ACETweakList.txt)
+var config string TweakListPath;          // Path to the tweaklist (e.g.: ../System/)
 var config bool   bStrictSystemLibraryChecks; // If true, ACE will kick for integrity violations in system DLLs. Not recommended!
 var config bool   bVerboseLogging;        // If true, ACE will log integrity violations in system DLLs.
 var config string PackageHelperClass;     // Name of the PackageHelper class.
 var config string HUDMutatorClass;        // name of the splash logo class to use. Must be a subclass of IACE.ACEHUDMutator
-
 
 // =============================================================================
 // Variables
@@ -203,13 +206,17 @@ defaultproperties
     FileListName="ACEFileList.txt"
     FileListPath="./"
     FileListProviderHost="utgl.unrealadmin.org"
-    FileListProviderPath="/ACE/"
+    FileListProviderPath="/ACE/"	
 	TweakListName="ACETweakList.txt"
+	TweakListPath="./"
+	TweakListProviderHost="utgl.unrealadmin.org"
+	TweakListProviderPath="/ACE/"
     SShotPath="../Shots/"
     SShotPrefix="[ACE]"
     ACEPort=0
     bAllowOtherPorts=true
     bAutoUpdateFileList=true
+	bAutoUpdateTweakList=true
     LogPath="../Logs/"
     LogPrefix="[ACE]"
     HandshakeTimeout=30.0
