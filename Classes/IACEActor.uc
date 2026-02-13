@@ -13,6 +13,7 @@ var config float  HandshakeTimeout;       //
 var config float  InitialCheckLinger;     // How many seconds do we wait before running the initial check?
 var config float  InitialCheckTimeout;    // How many seconds are allowed to run the initial check?
 var config float  PeriodicCheckInterval;  // How many seconds in between checks?
+var config float  PeriodicCheckVariance;  // Variance in seconds for randomizing PeriodicCheckInterval (e.g., 15 = ±15s)
 var config float  PeriodicCheckTimeout;   // How many seconds are allowed to run the periodic check?
 var config bool   bSShotWhenKick;         // Make a screenshot before kicking?
 var config string SShotPath;              // Path to the sshot folder (e.g.: ../Shots/)
@@ -58,6 +59,18 @@ var config string TweakListName;          // Filename of the tweaklist (e.g.: AC
 var config string TweakListPath;          // Path to the tweaklist (e.g.: ../System/)
 var config bool   bStrictSystemLibraryChecks; // If true, ACE will kick for integrity violations in system DLLs. Not recommended!
 var config bool   bVerboseLogging;        // If true, ACE will log integrity violations in system DLLs.
+var config bool   bEnableThreadWatchdog;  // Enable thread monitoring (detects if ACE threads are suspended)
+var config int    ThreadWatchdogThreshold;// Seconds without heartbeat before a strike is recorded
+var config int    ThreadWatchdogStrikes;  // Consecutive strikes before kicking
+
+// Experimental Settings
+var config bool   bMemoryReaderDetection; // Enable external memory reader detection
+var config int    MemoryReaderAction;     // Action: 0=Log, 1=Flag, 2=Kick
+var config bool   bMemoryReaderIgnoreSigned; // Whitelist signed/known processes
+var config bool   bCodeInjectionDetection;// Enable DLL injection/shellcode detection
+var config int    CodeInjectionAction;    // Action: 0=Log, 1=Flag, 2=Kick
+var config bool   bCodeInjectionIgnoreSigned; // Whitelist signed modules
+
 var config string PackageHelperClass;     // Name of the PackageHelper class.
 var config string HUDMutatorClass;        // name of the splash logo class to use. Must be a subclass of IACE.ACEHUDMutator
 
@@ -222,6 +235,7 @@ defaultproperties
     HandshakeTimeout=30.0
     InitialCheckTimeout=70.0
     PeriodicCheckInterval=45.0
+    PeriodicCheckVariance=15.0
     PeriodicCheckTimeout=60.0
     SShotTimeout=40.0
     bStrictSystemLibraryChecks=false
@@ -230,4 +244,13 @@ defaultproperties
 	bVerboseLogging=false
 	bEnableAntiTweak=false
 	bCreateEndShots=false
+	bEnableThreadWatchdog=false
+	ThreadWatchdogThreshold=60
+	ThreadWatchdogStrikes=2
+	bMemoryReaderDetection=false
+	MemoryReaderAction=0
+	bMemoryReaderIgnoreSigned=true
+	bCodeInjectionDetection=false
+	CodeInjectionAction=0
+	bCodeInjectionIgnoreSigned=true
 }
