@@ -33,6 +33,7 @@ var bool       bWine;               // Is the client running UT using the Wine E
 var bool       bSShotPending;       // Is a screenshot being sent?
 var PlayerPawn SShotRequester;      // Pawn that requested the screenshot. none if the server did it
 var IACECheck  NextCheck;           // Linked list
+var int        ExpectedPlatform;    // Platform server expects for this client from join metadata: 0=Unknown, 1=Windows, 2=Linux
 
 // =============================================================================
 // SetPlayerCrosshairScale
