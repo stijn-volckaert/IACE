@@ -1,5 +1,5 @@
 // =============================================================================
-// AntiCheatEngine - (c) 2009-2016 AnthraX
+// AntiCheatEngine - (c) 2009-2026 AnthraX
 // =============================================================================
 // ACE End User License agreement. Spawned into entrylevel and displayed by
 // NPLoader. Needs to be accepted before ACE is installed.
@@ -25,11 +25,12 @@ var config bool bLicenseAccepted;
 function PostBeginPlay()
 {
     AddLine("================================================");
-    AddLine("AntiCheatEngine 1.2 - End User License Agreement");
+    AddLine("AntiCheatEngine 1.4 - End User License Agreement");
     AddLine("================================================");
     AddLine("");
     AddLine("By installing ACE, the player accepts that ACE:");
     AddLine("* may monitor the game's virtual address space to look for mods, libraries or programs that enable or facilitate cheating;");
+    AddLine("* may check for other processes that can read the game's memory, and for code or libraries injected into the game process;");
     AddLine("* may generate checksums for the game's core files and certain system libraries;");
     AddLine("* may generate and submit screenshots;");
     AddLine("* may submit non-personal system information to the gameserver;");
