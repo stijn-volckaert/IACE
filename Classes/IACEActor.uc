@@ -90,6 +90,7 @@ function PostBeginPlay()
     ACEPadLog(ACEVersion," ","|",40,true);
     ACEPadLog("(c) 2009-2026 - AnthraX"," ","|",40,true);
     ACEPadLog("","-","+",40,true);
+    SaveConfig();
     MyPostBeginPlay();
 }
 
